@@ -16,11 +16,14 @@ const assignment = {};
  */
 function sumOfNumbersTo(destination) {
     let sum = 0;
-    return sum
+    for (let i = 0; i <= destination; i++) {
+        sum += i;
+    }
+    return sum;
 }
+sumOfNumbersTo();
 
-
-// assignment.sumOfNumbersTo = sumOfNumbersTo;
+assignment.sumOfNumbersTo = sumOfNumbersTo;
 
 /**
  * Challenge - 2
@@ -33,11 +36,20 @@ function sumOfNumbersTo(destination) {
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
  */
 function countEvenNumbersWithin(destination) {
-    // Write your code here
-    // get the number from 1 to destination
-    let sum = 0;
-    let count = 0;
     let arrayOfEvenNumbers = [];
+    let sum = 0;
+    //array of even numbers
+    for (let i = 1; i <= destination; i++) {
+        if (i % 2 == 0) {
+            arrayOfEvenNumbers.push(i);
+        }
+    }
+    //count
+    let count = arrayOfEvenNumbers.length;
+    // sum
+    for (let i = 0; i < count; i++) {
+        sum += arrayOfEvenNumbers[i];
+    }
 
     return {
         // property value shorthand
@@ -48,8 +60,9 @@ function countEvenNumbersWithin(destination) {
         arrayOfEvenNumbers
     };
 }
+countEvenNumbersWithin();
 
-// assignment.countEvenNumbersWithin = countEvenNumbersWithin;
+assignment.countEvenNumbersWithin = countEvenNumbersWithin;
 
 /**
  * Challenge - 3
@@ -66,13 +79,23 @@ function countEvenNumbersWithin(destination) {
  * @param {Array} arrayOfNumbers the array containing temperatures in Celsius to be converted
  * @returns Array the converted temperatures in Fahrenheit
  */
+let emptyArray = [];
 function celsiusToFahrenheit(arrayOfNumbers) {
+    // [ C × (9/5) + 32 ]
     let result = [];
-
+    function celciusFormula(celcius) {
+        let farenheit = celcius * (9 / 5) + 32;
+        return farenheit;
+    }
+    arrayOfNumbers.forEach((item) => {
+        let newFarenheit = Math.trunc(celciusFormula(item));
+        result.push(newFarenheit);
+    });
     return result;
 }
+celsiusToFahrenheit(emptyArray);
 
-// assignment.celsiusToFahrenheit = celsiusToFahrenheit;
+assignment.celsiusToFahrenheit = celsiusToFahrenheit;
 
 // ========================
 // DO NOT EDIT THIS BLOCK
